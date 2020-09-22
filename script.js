@@ -1,5 +1,3 @@
-console.log("test")
-console.log("test")
 
 var generateBtn = document.querySelector("#generate");
 
@@ -9,8 +7,11 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+};
 
-}
+function generatePassword {
+var length = parseInt(prompt("What length would you like for the password?"))
+};
 
 function getRandomUpperCase(){
   return String.fromCharCode(Math.floor(Math.random()*26)+65);
@@ -25,7 +26,35 @@ function getRandomNumber(){
 function getRandomSymbol(){
   var symbol = "!@#$%^&*(){}[]=<>/,.|~?";
   return symbol[Math.floor(Math.random()*symbol.length)];
-}
+};
+
+var password =""
+var useUppers = confirm("Do you want to use uppercase letters?");
+
+if (useUppers) {
+ password += getRandomUpperCase();
+};
+
+var password =""
+var useUppers = confirm("Do you want to use lowercase letters?");
+
+if (useLowers) {
+ password += getRandomLowerCase();
+};
+
+var password =""
+var useNumbers = confirm("Do you want to use numbers?");
+
+if (useUppers) {
+ password += getRandomNumbers();
+};
+
+var password =""
+var useUppers = confirm("Do you want to use symbols?");
+
+if (useUppers) {
+ password += getRandomSymbols();
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
