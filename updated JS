@@ -1,0 +1,51 @@
+writePassword();
+    var includeLowerCaseEL = "";
+    var includeUpperCaseEL = "";
+    var includeNumbersEL = ""; 
+    var includeSymbolsEL = "";
+
+function writePassword() {
+  var characterAmountEL = prompt("How long do you want your password? (8-128 characters)")
+  if (characterAmountEL >128 || characterAmountEL <8){
+    alert("Please choose between 8 and 128 characters")
+    return }
+    else {
+        includeLowerCaseEL = prompt("Click 'ok' to include lowercase letters")
+        includeUpperCaseEL = confirm("Click 'ok' to include uppercase letters")
+        includeNumbersEL = confirm("Click 'ok' to include numbers")
+        includeSymbolsEL = confirm("Click 'ok' to include symbols")
+    }
+    if (includeLowerCaseEL != true && includeUpperCaseEL != true && includeNumbersEL != true && includeSymbolsEL != true ) {
+         alert("You must select at least one type of character to continue.") 
+    } else {
+        generatePassword(characterAmountEL)
+    }
+    return generatePassword(characterAmountEL)
+}
+
+    //function to generate pw from user input
+function generatePassword (characterAmountEL) {
+        var charCodes = []
+        if (includeLowerCaseEL) charCodes = charCodes.concat(LOWERCASE_CHAR_CODES)
+        if (includeUpperCaseEL) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
+        if (includeNumbersEL) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+        if (includeSymbolsEL) charCodes = charCodes.concat(SYMBOLS_CHAR_CODES)
+      //error
+        var passwordCharacters = []
+      for (var i=0; i < characterAmountEL; i++) {
+      var characterCode = charCodes[Math.floor(Math.random() * characterAmountEL.length)]
+       passwordCharacters.push(String.fromCharCode(characterCode))
+      }
+      console.log(passwordCharacters)
+          return passwordCharacters.join('')
+
+      //generateBtn.addEventListener("click", writePassword);
+
+    function arrayFormLowToHigh(low, high) {
+      var array = []
+       for (var i = low; i <= high; i++) {
+      array.push(i)
+      }
+      return array
+      };
+}
